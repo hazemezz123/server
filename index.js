@@ -15,6 +15,9 @@ const server = http.createServer(app);
 initSocket(server);
 
 // Increase payload size limit for JSON and URL-encoded bodies to 10MB
+app.get("/", (req, res) => {
+  res.send("Welcome to the Chat Application API");
+});
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser());
